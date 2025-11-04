@@ -5,53 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Pessoal - Keviny</title>
     <style>
+        :root {
+            --cor-principal: #1e90ff;
+            --fundo: #f0f2f5;
+            --texto: #333;
+        }
+
+        body.dark-mode {
+            --fundo: #1a1a1a;
+            --texto: #f5f5f5;
+            --cor-principal: #00bfff;
+        }
+
         body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
+            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            background-color: var(--fundo);
+            color: var(--texto);
+            transition: background-color 0.3s, color 0.3s;
         }
 
         header {
-            background: linear-gradient(135deg, #0077b6, #0096c7);
+            background-color: var(--cor-principal);
             color: white;
             text-align: center;
-            padding: 50px 0;
+            padding: 40px 0;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.8em;
-        }
-
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
+        header img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-top: 15px;
+            border: 3px solid white;
         }
 
         section {
-            max-width: 900px;
+            max-width: 800px;
             margin: 30px auto;
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--fundo);
         }
 
         h2 {
-            color: #0077b6;
-            border-bottom: 2px solid #0077b6;
+            border-bottom: 2px solid var(--cor-principal);
             padding-bottom: 5px;
         }
 
         ul {
-            list-style-type: square;
-            margin-left: 20px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 8px 0;
         }
 
         a {
-            color: #0077b6;
+            color: var(--cor-principal);
             text-decoration: none;
         }
 
@@ -59,55 +72,107 @@
             text-decoration: underline;
         }
 
+        .botao {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: var(--cor-principal);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #155a9c;
+        }
+
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #0077b6;
+            background: var(--cor-principal);
             color: white;
-            margin-top: 40px;
+            margin-top: 30px;
+        }
+
+        /* Centraliza o botão de modo escuro */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--cor-principal);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
     <header>
         <h1>Keviny</h1>
-        <p>Estudante de Desenvolvimento de Sistemas | IFAL</p>
+        <p>Estudante de Desenvolvimento de Sistemas • Sonho em ser Jogador Profissional de Futebol ⚽</p>
+        <img src="foto.jpg" alt="Foto de Keviny">
     </header>
 
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>Olá, meu nome é <strong>Keviny</strong>. Estudo <strong>Desenvolvimento de Sistemas</strong> no <strong>IFAL</strong>. 
-        Gosto de jogar bola, assistir filmes e aproveitar o tempo livre.  
-        Ainda estou aprendendo sobre <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>, mas tenho interesse em entender como as coisas funcionam na programação e quero evoluir com o tempo.</p>
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Email: <a href="mailto:keviny@gmail.com">keviny@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com" target="_blank">linkedin.com</a></p>
+        <p>GitHub: <a href="https://github.com/keviny" target="_blank">github.com/keviny</a></p>
+    </section>
+
+    <section id="educacao">
+        <h2>Educação</h2>
+        <ul>
+            <li><strong>Curso:</strong> Desenvolvimento de Sistemas – IFAL</li>
+            <li><strong>Idade:</strong> 16 anos</li>
+        </ul>
     </section>
 
     <section id="experiencia">
         <h2>Experiência</h2>
-        <p><strong>Projeto Integrador (IFAL)</strong></p>
-        <p>Participo de atividades práticas no IFAL, aprendendo sobre lógica de programação e desenvolvimento de sites simples. Ainda estou no início da jornada, mas cada dia aprendo um pouco mais.</p>
+        <ul>
+            <li><strong>Estudante e Atleta</strong> – IFAL (2024 - atual)</li>
+            <li>Aprendendo programação e treinando futebol com o objetivo de ser jogador profissional.</li>
+        </ul>
     </section>
 
     <section id="habilidades">
         <h2>Habilidades</h2>
         <ul>
-            <li>Aprendendo HTML, CSS e JavaScript</li>
-            <li>Noções básicas de Git e GitHub</li>
-            <li>jogar bola</li>
-            <li>fazer gol</li>
-            <li>e da assistencia</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Criação de páginas simples e interativas</li>
+            <li>Trabalho em equipe</li>
+            <li>Foco e disciplina nos treinos</li>
         </ul>
     </section>
 
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Email: <a href="mailto:keviny@email.com">keviny@email.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/seu-link" target="_blank">linkedin.com/in/seu-link</a></p>
+    <section id="interativo">
+        <h2>Interatividade</h2>
+        <p>Clique no botão abaixo e veja uma mensagem especial 😎👇</p>
+        <button class="botao" onclick="mostrarMensagem()">Clique aqui!</button>
     </section>
 
     <footer>
-        <p>© 2025 Keviny - Página pessoal no GitHub Pages</p>
+        <p>© 2025 Keviny • Criado com ❤️ e hospedado no GitHub Pages</p>
     </footer>
 
+    <button class="dark-mode-toggle" onclick="alternarModo()">🌙 Modo Escuro</button>
+
+    <script>
+        // Mensagem de boas-vindas
+        function mostrarMensagem() {
+            alert('Olá! Seja bem-vindo ao site do Keviny ⚽💻');
+        }
+
+        // Alternar modo escuro
+        function alternarModo() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
