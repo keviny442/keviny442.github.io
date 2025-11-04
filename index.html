@@ -1,42 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre Mim - Keviny</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keviny — Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    
+    :root {
+      --cor-primaria: #0077b6;
+      --cor-secundaria: #023e8a;
+      --cor-fundo: #f4f4f9;
+      --cor-texto: #333;
+      --cor-card: #fff;
+    }
+
+    [data-theme="dark"] {
+      --cor-fundo: #0b0b0d;
+      --cor-texto: #eaeaea;
+      --cor-card: #121212;
+      --cor-primaria: #00b4d8;
+      --cor-secundaria: #0077b6;
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
     body {
       font-family: "Poppins", sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
 
     header {
-      background-color: #0077b6;
+      background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 4rem;
+      position: relative;
     }
 
     header h1 {
-      margin: 0;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
+    header p {
+      font-size: 1.1rem;
+    }
+
+    
+    #toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       background: white;
+      border: none;
+      color: var(--cor-primaria);
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #toggle-theme:hover {
+      background: var(--cor-primaria);
+      color: white;
+    }
+
+    /* ===== SEÇÕES ===== */
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: var(--cor-card);
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
-      color: #0077b6;
-      border-bottom: 2px solid #0077b6;
+      color: var(--cor-primaria);
+      border-bottom: 3px solid var(--cor-primaria);
       padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     ul {
@@ -47,25 +106,62 @@
     ul li {
       background: #e3f2fd;
       margin: 0.5rem 0;
-      padding: 0.5rem;
-      border-radius: 5px;
+      padding: 0.6rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] ul li {
+      background: #1c1f26;
     }
 
     a {
-      color: #0077b6;
+      color: var(--cor-primaria);
       text-decoration: none;
+      font-weight: 600;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
+    
+    #btn-topo {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--cor-primaria);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    #btn-topo:hover {
+      background: var(--cor-secundaria);
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #0077b6;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-primaria));
       color: white;
-      margin-top: 2rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        margin: 1.5rem;
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -74,42 +170,78 @@
   <header>
     <h1>Keviny</h1>
     <p>Estudante de Desenvolvimento de Sistemas | IFAL</p>
+    <button id="toggle-theme"> Modo Escuro</button>
   </header>
 
   <section id="sobre">
     <h2>Sobre Mim</h2>
-    <p>Olá, meu nome é <strong>Keviny</strong>. Estudo <strong>Desenvolvimento de Sistemas</strong> no IFAL. 
-    Gosto de jogar bola com os amigos, assistir filmes e aproveitar o tempo livre. 
-    Ainda estou aprendendo sobre <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>, 
-    mas tenho muito interesse em entender como as coisas funcionam na programação e quero evoluir com o tempo.</p>
+    <p>Olá! Sou <strong>Keviny</strong>, estudante de <strong>Desenvolvimento de Sistemas</strong> no IFAL. 
+    Gosto de jogar bola, assistir filmes e descobrir como a tecnologia funciona. 
+    Tenho aprendido <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>, e quero continuar evoluindo na área de programação e design web.</p>
   </section>
 
   <section id="experiencia">
     <h2>Experiência</h2>
     <p><strong>Projeto Integrador (IFAL)</strong></p>
-    <p>Participo de atividades práticas no IFAL, aprendendo sobre lógica de programação e desenvolvimento de sites simples. 
-    Ainda estou no início da jornada, mas cada dia aprendo um pouco mais.</p>
+    <p>Participo de projetos e atividades que envolvem lógica de programação, desenvolvimento web e trabalho em equipe. 
+    Estou sempre buscando aplicar o que aprendo em situações práticas para crescer como desenvolvedor.</p>
   </section>
 
   <section id="habilidades">
     <h2>Habilidades</h2>
     <ul>
-      <li>Aprendendo HTML, CSS e JavaScript</li>
+      <li>HTML, CSS e JavaScript</li>
       <li>Noções básicas de Git e GitHub</li>
-      <li>jogar bola</li>
-      <li>fazer goll</li>
-      <li>da assistencia</li>
+      <li>Trabalho em equipe e comunicação</li>
+      <li>Jogar bola ⚽</li>
+      <li>Finalizações e assistências 🥅</li>
     </ul>
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
     <p><strong>Email:</strong> <a href="mailto:keviny@email.com">keviny@email.com</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/" target="_blank">github.com/keviny</a></p>
   </section>
+
+  <button id="btn-topo">⬆</button>
 
   <footer>
     <p>© 2025 Keviny. Todos os direitos reservados.</p>
   </footer>
 
+  <scrip>
+    
+    const toggleThemeBtn = document.getElementById("toggle-theme");
+    const body = document.body;
+
+    toggleThemeBtn.addEventListener("click", () => {
+      const darkMode = body.getAttribute("data-theme") === "dark";
+      body.setAttribute("data-theme", darkMode ? "light" : "dark");
+      toggleThemeBtn.textContent = darkMode ? " Modo Escuro" : "☀️ Modo Claro";
+    });
+
+    
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    
+    const btnTopo = document.getElementById("btn-topo");
+    window.addEventListener("scroll", () => {
+      btnTopo.style.display = window.scrollY > 400 ? "block" : "none";
+    });
+
+    btnTopo.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
 </body>
 </html>
+
