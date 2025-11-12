@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Robotron - Troca de Cores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            display: inline-block;
+            background-color: white;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            transition: transform 0.2s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 18px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #286090;
+        }
+    </style>
+</head>
+<body>
+    <h1>Troque a cor do Robotron</h1>
+
+    <div class="container">
+        <img id="robotron" src="img/robotron-azul.png" alt="Robotron">
+        <div>
+            <button onclick="voltarCor()">&lt;&lt;</button>
+            <button onclick="proximaCor()">&gt;&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        const cores = ["azul", "amarelo", "preto", "rosa", "branco"];
+        let indiceAtual = 0;
+
+        function atualizarImagem() {
+            const robotron = document.getElementById("robotron");
+            robotron.src = `img/robotron-${cores[indiceAtual]}.png`;
+        }
+
+        function proximaCor() {
+            indiceAtual++;
+            if (indiceAtual >= cores.length) {
+                indiceAtual = 0;
+            }
+            atualizarImagem();
+        }
+
+        function voltarCor() {
+            indiceAtual--;
+            if (indiceAtual < 0) {
+                indiceAtual = cores.length - 1;
+            }
+            atualizarImagem();
+        }
+    </script>
+</body>
+</html>
