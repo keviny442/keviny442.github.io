@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 01</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .caixa {
+      border: 1px solid #aaa;
+      padding: 20px;
+      box-shadow: 0 0 5px #ccc;
+      text-align: center;
+    }
+    input {
+      margin: 5px;
+      padding: 5px;
+    }
+    button {
+      padding: 6px 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
 
+  <div class="caixa">
+    <h2>Atividade 01</h2>
+    <label>Nome Completo:</label>
+    <input type="text" id="nomeCompleto" placeholder="Digite o nome completo">
+    <button onclick="separarNome()">>></button><br>
+    <label>Nome:</label>
+    <input type="text" id="nome"><br>
+    <label>Sobrenome:</label>
+    <input type="text" id="sobrenome">
+  </div>
+
+  <script>
+    function separarNome() {
+      const nomeCompleto = document.getElementById("nomeCompleto").value.trim();
+      if (nomeCompleto === "") {
+        alert("Por favor, digite o nome completo!");
+        return;
+      }
+
+      const partes = nomeCompleto.split(" ");
+      const nome = partes.shift(); // primeiro nome
+      const sobrenome = partes.join(" "); // o resto
+
+      document.getElementById("nome").value = nome;
+      document.getElementById("sobrenome").value = sobrenome;
+    }
+  </script>
+
+</body>
+</html>
