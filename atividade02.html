@@ -1,84 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Cálculo do IMC</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo do IMC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        .container {
-            background-color: white;
-            border: 2px solid #ccc;
-            padding: 20px 40px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 400px;
-        }
+    .container {
+      background-color: white;
+      border: 2px solid #d0d0d0;
+      border-radius: 10px;
+      padding: 30px;
+      width: 350px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
-        h1 {
-            color: #337ab7;
-            margin-bottom: 20px;
-        }
+    h2 {
+      text-align: center;
+      color: #2a5bd7;
+    }
 
-        .formulario {
-            border: 1px solid #337ab7;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            text-align: left;
-        }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-        label {
-            display: inline-block;
-            width: 60px;
-        }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-        input {
-            margin-bottom: 10px;
-            padding: 5px;
-            width: calc(100% - 70px);
-        }
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2a5bd7;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-        button {
-            display: block;
-            margin: 10px auto;
-            padding: 8px 15px;
-            background-color: #337ab7;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    button:hover {
+      background-color: #1c4499;
+    }
 
-        button:hover {
-            background-color: #286090;
-        }
-
-        #resultado {
-            border: 1px solid #ccc;
-            padding: 10px;
-            min-height: 40px;
-            text-align: left;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-    </style>
+    #resultado {
+      margin-top: 20px;
+      background-color: #eef3ff;
+      border: 1px solid #cdd9ff;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Cálculo do IMC</h1>
-        <div class="formulario">
-            <label>Nome:</label>
-            <input type="text" id="nome"><br>
-            <label>Peso:</label>
-            <input type="number" id="peso" step="0.01"><br>
-            <label>Altura:</label>
-            <input type="n
+  <div class="container">
+    <h2>Cálculo do IMC</h2>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" placeholder="Digite seu nome">
+
+    <label for="peso">Peso (kg):</label>
+    <input type="number" id="peso" step="0.1" placeholder="Ex: 70">
+
+    <label for="altura">Altura (m):</label>
+    <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75">
+
+    <button onclick="calcularIMC()">Calcular IMC</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularIMC() {
+      const nome = document.getElementById('nome').value.trim();
+      const peso = parseFloat(document.getElementById('peso').value);
+      const altura = parseFloat(document.getElementById('altura').value);
+      const resultadoDiv = document.getElementById('resultado');
+
+      if (!nome || isNaN(peso) || isNaN(altura) || altura <= 0) {
+        resultadoDiv.innerHTML = "Por favor, preencha todos os campos corretamente.";
+        return;
+      }
+
+      const imc = peso / (altura * altura);
+      const imcFormatado = imc.toFixed(2);
+
+      resultadoDiv.innerHTML = `Olá, <strong>${nome}</strong>.<br>O seu IMC é de <strong>${imcFormatado}</strong>.`;
+    }
+  </script>
+</body>
+</html>
