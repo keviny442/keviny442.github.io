@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Trocar Cor do Robotron</title>
+
     <style>
         body {
             background: linear-gradient(120deg, #e3f2fd, #bbdefb);
@@ -45,9 +46,9 @@
 
     <div class="container">
 
-        <button id="voltar">--</button>
+        <button id="voltar"><<</button>
 
-        <img id="robotron" src="C:\Users\i2025303227\Documents\netodotropadeelite\robotron-2000-projeto_inicial\img\robotron-rosa.png" alt="Robotron">
+        <img id="robotron" src="robotron-2000-projeto_inicial\img\robotron-amarelo.png" alt="Robotron">
 
         <button id="avancar">>></button>
 
@@ -55,11 +56,11 @@
 
     <script>
         const cores = [
-            "C:\Users\i2025303227\Documents\netodotropadeelite\robotron-2000-projeto_inicial\img\robotron-rosa.png",
-            "C:\Users\i2025303227\Documents\netodotropadeelite\robotron-2000-projeto_inicial\img\robotron-cinza.png",
-            "C:\Users\i2025303227\Documents\netodotropadeelite\robotron-2000-projeto_inicial\img\robotron-preto.png",
-            "C:\Users\i2025303227\Documents\netodotropadeelite\robotron-2000-projeto_inicial\img\robotron-amarelo.png",
-            "C:\Users\i2025303227\Documents\netodotropadeelite\robotron-2000-projeto_inicial\img\robotron-azul.png"
+            "robotron-2000-projeto_inicial/img/robotron-rosa.png",
+            "robotron-2000-projeto_inicial/img/robotron-branco.png",
+            "robotron-2000-projeto_inicial/img/robotron-preto.png",
+            "robotron-2000-projeto_inicial/img/robotron-amarelo.png",
+            "robotron-2000-projeto_inicial/img/robotron-azul.png"
         ];
 
         let indice = 0;
@@ -69,21 +70,15 @@
         const avancar = document.getElementById("avancar");
 
         avancar.addEventListener("click", function() {
-            indice++;
-            if (indice >= cores.length) {
-                indice = 0; 
-            }
-            imagem.src = cores[indice];
-        });
-<
-        voltar.addEventListener("click", function() {
-            indice--;
-            if (indice < 0) {
-                indice = cores.length - 1; 
-            }
+            indice = (indice + 1) % cores.length;
             imagem.src = cores[indice];
         });
 
+        voltar.addEventListener("click", function() {
+            indice = (indice - 1 + cores.length) % cores.length;
+            imagem.src = cores[indice];
+        });
     </script>
+
 </body>
 </html>
