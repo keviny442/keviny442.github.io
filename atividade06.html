@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Atividade 06</title>
+
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, select { padding: 5px; margin: 5px 0; width: 200px; }
+    button { padding: 8px 12px; margin: 5px; }
+    table { border-collapse: collapse; margin-top: 15px; width: 400px; }
+    td, th { border: 1px solid #000; padding: 8px; text-align: center; }
+
+    #resumoDiv {
+      border: 1px solid black;
+      padding: 20px;
+      margin-top: 20px;
+      width: 300px;
+      display: none; /* COMEÇA ESCONDIDO */
+    }
+  </style>
+</head>
+<body>
+
+<h2>Atividade 06</h2>
+
+<!-- =================== DIV 1 - FORMULARIO =================== -->
+
+<div id="cadastroDiv">
+
+  <h3>Cadastro de Gastos</h3>
+
+  <label>Categoria:</label><br>
+  <select id="categoria">
+    <option>Mercado</option>
+    <option>Transporte</option>
+    <option>Saúde</option>
+    <option>Lazer</option>
+  </select><br>
+
+  <label>Valor:</label><br>
+  <input type="number" id="valor" step="0.01"><br>
+
+  <label>Data:</label><br>
+  <input type="date" id="data"><br><br>
+
+  <button onclick="adicionar()">Adicionar</button>
+  <button onclick="calcular()">Calcular</button>
+
+  <table id="tabela">
+    <thead>
+      <tr>
+        <th>Categoria</th>
+        <th>Data</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+</div>
+
+
+<!-- =================== DIV 2 - RESUMO =================== -->
+
+<div id="resumoDiv">
+  <h3>Resumo</h3>
+
+  <p id="totalGeral"></p>
+  <p id="totalMes03"></p>
+  <p id="totalMes04"></p>
+  <p id="totalMercado"></p>
+</div>
+
+
+<script>
+  let gastos = [];
+
+  // -------- ADICIONAR ----------
+  function adicionar() {
+    const categoria = document.getElementById("categoria").value;
+    const valor = parseFloat(document.getElementById("valor").value);
+    const data = document.getElementById("data").value;
+
+    if (!valor || !data) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    gastos.push({ categoria, valor, data });
+
+    atualizarTabela();
+  }
+
+  // -------- ATUALIZAR TABELA ----------
+  function atualizarTabela() {
+    const tbody = document.querySelector("#tabela tbody");
+    tbody.innerHTML = "";
+
+    gastos.forEach(g => {
+      let tr = `
+        <tr>
+          <td>${g.categoria}</td>
+          <td>${g.data}</td>
+          <td>${g.valor.toFixed(2)}</td>
+        </tr>
+      `;
+      tbody.innerHTML += tr;
+    });
+  }
+
+  // -------- CALCULAR E MOSTRAR RESUMO ----------
+  function calcular() {
+    let total = 0;
+    let total03 = 0;
+    let total04 = 0;
+    let mercado = 0;
+
+    gastos.forEach(g => {
+      const mes = g.data.split("-")[1];
+
+      total += g.valor;
+      if (mes === "03") total03 += g.valor;
+      if (mes === "04") total04 += g.valor;
+      if (g.categoria === "Mercado") mercado += g.valor;
+    });
+
+    // Preenche o resumo na DIV
+    document.getElementById("totalGeral").innerText =
+      "Total: " + total.toFixed(2);
+
+    document.getElementById("totalMes03").innerText =
+      "Total no Mês 03: " + total03.toFixed(2);
+
+    document.getElementById("totalMes04").innerText =
+      "Total no Mês 04: " + total04.toFixed(2);
+
+    document.getElementById("totalMercado").innerText =
+      "Total de gastos com Mercado: " + mercado.toFixed(2);
+
+    // Mostra a DIV de resumo
+    document.getElementById("resumoDiv").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
 
