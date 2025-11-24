@@ -2,83 +2,72 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Trocar Cor do Robotron</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotron</title>
     <style>
         body {
-            background: linear-gradient(120deg, #e3f2fd, #bbdefb);
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 40px;
-        }
+    background-image: url("C:/Users/i2025303227/Documents/eu/robotron-2000-projeto_inicial/img/fundo.jpg");
+    background-size: cover;      /* cobre a tela inteira */
+    background-position: center; 
+    background-repeat: no-repeat;
+    font-family: Arial;
+    text-align: center;
+    margin-top: 40px;
+}
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            margin-top: 30px;
+        #robotron {
+            width: 300px;
         }
 
         button {
-            font-size: 25px;
             padding: 10px 20px;
+            font-size: 22px;
+            margin: 10px;
             cursor: pointer;
-            border: none;
-            background-color: #1565c0;
-            color: white;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background-color: #0d47a1;
-        }
-
-        #robotron {
-            width: 250px;
         }
     </style>
 </head>
 <body>
-    
-    <h1>Trocar Cor do Robotron</h1>
 
-    <div class="container">
+    <h1>Trocar cor do Robotron</h1>
 
-        <button id="voltar"><<</button>
+    <img id="robotron" src="C:\Users\i2025303227\Documents\eu\robotron-2000-projeto_inicial\img\robotron.png">
 
-        <img id="robotron" src="robotron-2000-projeto_inicial\img\robotron-amarelo.png" alt="Robotron">
+    <br>
 
-        <button id="avancar">>></button>
-
-    </div>
+    <button id="btnPrev">&lt;&lt;</button>
+    <button id="btnNext">&gt;&gt;</button>
 
     <script>
-        const cores = [
-            "robotron-2000-projeto_inicial/img/robotron-rosa.png",
-            "robotron-2000-projeto_inicial/img/robotron-branco.png",
-            "robotron-2000-projeto_inicial/img/robotron-preto.png",
-            "robotron-2000-projeto_inicial/img/robotron-amarelo.png",
-            "robotron-2000-projeto_inicial/img/robotron-azul.png"
-        ];
+        // Lista das imagens do robotron
+const cores = [
+    "C:/Users/i2025303227/Documents/eu/robotron-2000-projeto_inicial/img/robotron-rosa.png",
+    "C:/Users/i2025303227/Documents/eu/robotron-2000-projeto_inicial/img/robotron-branco.png",
+    "C:/Users/i2025303227/Documents/eu/robotron-2000-projeto_inicial/img/robotron-preto.png",
+    "C:/Users/i2025303227/Documents/eu/robotron-2000-projeto_inicial/img/robotron-amarelo.png",
+    "C:/Users/i2025303227/Documents/eu/robotron-2000-projeto_inicial/img/robotron-azul.png"
+];
 
-        let indice = 0;
+let indice = 0;
 
-        const imagem = document.getElementById("robotron");
-        const voltar = document.getElementById("voltar");
-        const avancar = document.getElementById("avancar");
+const img = document.getElementById("robotron");
+const btnPrev = document.getElementById("btnPrev");
+const btnNext = document.getElementById("btnNext");
 
-        avancar.addEventListener("click", function() {
-            indice = (indice + 1) % cores.length;
-            imagem.src = cores[indice];
-        });
+btnNext.addEventListener("click", () => {
+    indice++;
+    if(indice >= cores.length) indice = 0;
+    img.src = cores[indice];
+});
 
-        voltar.addEventListener("click", function() {
-            indice = (indice - 1 + cores.length) % cores.length;
-            imagem.src = cores[indice];
-        });
+btnPrev.addEventListener("click", () => {
+    indice--;
+    if(indice < 0) indice = cores.length - 1;
+    img.src = cores[indice];
+});
+
     </script>
 
 </body>
 </html>
+
