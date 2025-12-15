@@ -5,18 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <title>Café Royale</title>
+
 <style>
-  /* Ajuste do carousel para manter proporção sem distorção */
-  #carousel .carousel-item img {
-    height: 400px;
-    object-fit: cover;
-  }
   /* Ajuste das imagens do cardápio */
   .cardapio-img {
     max-width: 300px;
     width: 100%;
     height: auto;
   }
+
   /* Galeria responsiva */
   #galeria img {
     width: 32%;
@@ -25,12 +22,15 @@
   }
 </style>
 </head>
+
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand" href="#">Café Royale</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNavbar"><span class="navbar-toggler-icon"></span></button>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
@@ -50,14 +50,7 @@
   <div class="container">
     <h1>Café Royale</h1>
     <p>Bistrô francês com ambiente acolhedor e pratos refinados.</p>
-    <!-- Carousel com apenas uma imagem -->
-    <div id="carousel" class="carousel slide mt-3" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://images.unsplash.com/photo-1555992336-03a23c1627d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" class="d-block w-100" alt="Interior do Café">
-        </div>
-      </div>
-    </div>
+
     <h4 class="mt-3">Horário</h4>
     <p>Seg–Sex: 11h–22h | Sáb: 12h–23h | Dom: 12h–20h</p>
   </div>
@@ -66,28 +59,33 @@
 <section id="cardapio" class="py-5">
   <div class="container">
     <h2>Cardápio</h2>
+
     <ul class="nav nav-tabs mt-3">
       <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#entradas">Entradas</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#principais">Principais</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#sobremesas">Sobremesas</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#bebidas">Bebidas</a></li>
     </ul>
-    <div class="tab-content mt-2">
+
+    <div class="tab-content mt-3">
       <div class="tab-pane fade show active" id="entradas">
         <p>Sopa de Cebola - R$29,90</p>
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="cardapio-img" alt="Sopa de Cebola">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=300" class="cardapio-img" alt="Sopa de Cebola">
       </div>
+
       <div class="tab-pane fade" id="principais">
         <p>Coq au Vin <span class="badge bg-warning">Especial</span> - R$69,90</p>
-        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="cardapio-img" alt="Coq au Vin">
+        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb4e?w=300" class="cardapio-img" alt="Coq au Vin">
       </div>
+
       <div class="tab-pane fade" id="sobremesas">
         <p>Crème Brûlée - R$24,90</p>
-        <img src="https://images.unsplash.com/photo-1604908177521-bffbb1e9e8c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="cardapio-img" alt="Crème Brûlée">
+        <img src="https://images.unsplash.com/photo-1604908177521-bffbb1e9e8c4?w=300" class="cardapio-img" alt="Crème Brûlée">
       </div>
+
       <div class="tab-pane fade" id="bebidas">
         <p>Vinho Bordeaux - R$45,00</p>
-        <img src="https://images.unsplash.com/photo-1576765607923-b8b1d14ec518?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="cardapio-img" alt="Vinho Bordeaux">
+        <img src="https://images.unsplash.com/photo-1576765607923-b8b1d14ec518?w=300" class="cardapio-img" alt="Vinho Bordeaux">
       </div>
     </div>
   </div>
@@ -97,11 +95,10 @@
   <div class="container">
     <h2>Sobre Nós</h2>
     <p>Fundado em 2025, experiência dos bistrôs franceses.</p>
+
     <h4>Chef Antoine Moreau</h4>
-    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200" class="img-fluid rounded-circle mb-2" alt="Chef Antoine Moreau">
+    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=200" class="img-fluid rounded-circle mb-2">
     <p>Especialista em cozinha parisiense.</p>
-    <h4>Prêmios</h4>
-    <p>Melhor Bistrô da Cidade 2024 | Top 10 Gastronomia Francesa</p>
   </div>
 </section>
 
@@ -114,7 +111,9 @@
       <input class="form-control col-md-4" type="number" placeholder="Pessoas">
       <input class="form-control col-md-6" placeholder="Nome">
       <input class="form-control col-md-6" placeholder="Telefone">
-      <div class="col-12"><button class="btn btn-dark">Reservar</button></div>
+      <div class="col-12">
+        <button class="btn btn-dark">Reservar</button>
+      </div>
     </form>
   </div>
 </section>
@@ -123,51 +122,18 @@
   <div class="container">
     <h2>Galeria</h2>
     <div class="d-flex flex-wrap gap-2 mt-2">
-      <img src="https://images.unsplash.com/photo-1556911073-52527ac437e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="img-fluid" alt="Imagem 1">
-      <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="img-fluid" alt="Imagem 2">
-      <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="img-fluid" alt="Imagem 3">
+      <img src="https://images.unsplash.com/photo-1556911073-52527ac437e9?w=300" class="img-fluid">
+      <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb4e?w=300" class="img-fluid">
+      <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?w=300" class="img-fluid">
     </div>
-    <h4 class="mt-2">Avaliações</h4>
-    <p>★★★★★ — “Melhor experiência francesa.”</p>
   </div>
 </section>
 
-<section id="contato" class="py-5">
-  <div class="container">
-    <h2>Contato</h2>
-    <p>Rua Royale, 128 — Parisville | (11) 90000-0000 | contato@caferoyale.com</p>
-    <iframe class="w-100 mb-2" height="200" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!..."></iframe>
-    <form class="row g-2">
-      <input class="form-control col-md-6" placeholder="Nome">
-      <input class="form-control col-md-6" placeholder="Email">
-      <textarea class="form-control col-12" rows="2" placeholder="Mensagem"></textarea>
-      <div class="col-12"><button class="btn btn-dark">Enviar</button></div>
-    </form>
-  </div>
-</section>
+<footer class="bg-dark text-white text-center py-2">
+  © 2025 Café Royale
+</footer>
 
-<section id="pedidos" class="bg-light py-5">
-  <div class="container">
-    <h2>Pedidos</h2>
-    <p>Pedidos via WhatsApp e retirada.</p>
-    <ul>
-      <li>Centro — 30 min</li>
-      <li>Jardins — 40 min</li>
-      <li>Vila França — 25 min</li>
-    </ul>
-  </div>
-</section>
-
-<section id="promocoes" class="py-5">
-  <div class="container">
-    <h2>Promoções</h2>
-    <p>Segunda Gourmet — 20% off</p>
-    <h4>Avaliações Online</h4>
-    <p>Google ★★★★★ | TripAdvisor ★★★★☆</p>
-  </div>
-</section>
-
-<footer class="bg-dark text-white text-center py-2">© 2025 Café Royale</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
