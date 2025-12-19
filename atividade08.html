@@ -10,11 +10,13 @@
     max-width: 300px;
     width: 100%;
     height: auto;
+    border-radius: 8px;
   }
   #galeria img {
     width: 32%;
     height: 200px;
     object-fit: cover;
+    border-radius: 8px;
   }
   .chef-img {
     width: 150px;
@@ -52,11 +54,11 @@
     <h1>Café Royale</h1>
     <p>Restaurante Japonês com ambiente moderno e pratos tradicionais.</p>
     <div class="row mt-4">
-      <div class="col-md-4"><img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400" class="img-fluid rounded" alt="Interior"></div>
-      <div class="col-md-4"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" class="img-fluid rounded" alt="Exterior"></div>
-      <div class="col-md-4"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400" class="img-fluid rounded" alt="Prato"></div>
+      <div class="col-md-4 mb-3"><img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400" class="img-fluid rounded" alt="Interior"></div>
+      <div class="col-md-4 mb-3"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" class="img-fluid rounded" alt="Exterior"></div>
+      <div class="col-md-4 mb-3"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400" class="img-fluid rounded" alt="Prato"></div>
     </div>
-    <h4 class="mt-4">Horário</h4>
+    <h4 class="mt-4">Horário de Funcionamento</h4>
     <p>Seg–Sex: 11h–22h | Sáb: 12h–23h | Dom: 12h–20h</p>
   </div>
 </section>
@@ -64,30 +66,37 @@
 <!-- Cardápio -->
 <section id="cardapio" class="py-5">
   <div class="container">
-    <h2>Cardápio</h2>
-    <ul class="nav nav-tabs mt-3">
+    <h2 class="mb-4">Cardápio</h2>
+    <ul class="nav nav-tabs">
       <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#entradas">Entradas</a></li>
-      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#principais">Principais</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#principais">Pratos Principais</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#sobremesas">Sobremesas</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#bebidas">Bebidas</a></li>
     </ul>
-
     <div class="tab-content mt-3">
       <div class="tab-pane fade show active" id="entradas">
-        <p>Gyoza - Bolinho japonês frito recheado com carne e legumes. - R$28,90</p>
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=300" class="cardapio-img">
+        <div class="d-flex align-items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=300" class="cardapio-img" alt="Gyoza">
+          <p>Gyoza - Bolinho japonês frito recheado com carne e legumes. <strong>R$28,90</strong></p>
+        </div>
       </div>
       <div class="tab-pane fade" id="principais">
-        <p>Sushi Combo <span class="badge bg-warning">Especial do Dia</span> - R$79,90</p>
-        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb4e?w=300" class="cardapio-img">
+        <div class="d-flex align-items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb4e?w=300" class="cardapio-img" alt="Sushi Combo">
+          <p>Sushi Combo <span class="badge bg-warning text-dark">Especial do Dia</span> - <strong>R$79,90</strong></p>
+        </div>
       </div>
       <div class="tab-pane fade" id="sobremesas">
-        <p>Mochi - Bolinho de arroz doce com recheio variado. - R$19,90</p>
-        <img src="https://images.unsplash.com/photo-1604908177521-bffbb1e9e8c4?w=300" class="cardapio-img">
+        <div class="d-flex align-items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1604908177521-bffbb1e9e8c4?w=300" class="cardapio-img" alt="Mochi">
+          <p>Mochi - Bolinho de arroz doce com recheio variado. <strong>R$19,90</strong></p>
+        </div>
       </div>
       <div class="tab-pane fade" id="bebidas">
-        <p>Sakê Premium - R$39,90</p>
-        <img src="https://images.unsplash.com/photo-1576765607923-b8b1d14ec518?w=300" class="cardapio-img">
+        <div class="d-flex align-items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1576765607923-b8b1d14ec518?w=300" class="cardapio-img" alt="Sakê">
+          <p>Sakê Premium - <strong>R$39,90</strong></p>
+        </div>
       </div>
     </div>
   </div>
@@ -99,7 +108,7 @@
     <h2>Sobre Nós</h2>
     <p>Fundado em 2025, o Café Royale oferece a verdadeira experiência da culinária japonesa, com pratos frescos e atendimento acolhedor. Nossa missão é levar a cultura japonesa à sua mesa, sempre com qualidade e respeito às tradições.</p>
     <h4>Chef Hiro Tanaka</h4>
-    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=200" class="chef-img mb-2" alt="Chef">
+    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=200" class="chef-img mb-2" alt="Chef Hiro Tanaka">
     <p>Especialista em sushi e pratos tradicionais japoneses, com 15 anos de experiência.</p>
     <p>Prêmios: Melhor Sushi 2024 – Revista Gastronomia | Reconhecimento pela qualidade de atendimento</p>
   </div>
@@ -116,7 +125,7 @@
       <input class="form-control col-md-6" placeholder="Nome" required>
       <input class="form-control col-md-6" placeholder="Telefone" required>
       <div class="col-12">
-        <button class="btn btn-dark">Reservar</button>
+        <button class="btn btn-dark mt-2">Reservar</button>
       </div>
     </form>
     <p class="mt-3">Política de reservas: Confirmação obrigatória via telefone. Cancelamentos até 24h antes sem custo.</p>
@@ -128,43 +137,13 @@
   <div class="container">
     <h2>Galeria</h2>
     <div class="d-flex flex-wrap gap-2 mt-2">
-      <img src="https://images.unsplash.com/photo-1556911073-52527ac437e9?w=300" class="img-fluid">
-      <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb4e?w=300" class="img-fluid">
-      <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?w=300" class="img-fluid">
+      <img src="https://images.unsplash.com/photo-1556911073-52527ac437e9?w=300" alt="Prato 1">
+      <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb4e?w=300" alt="Prato 2">
+      <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?w=300" alt="Interior 1">
     </div>
     <h4 class="mt-3">Avaliações de Clientes</h4>
     <p>"Melhor sushi da cidade! Atendimento excelente." – Ana S.</p>
     <p>"Ambiente agradável e pratos frescos." – João M.</p>
-  </div>
-</section>
-
-<!-- Pedidos Online -->
-<section id="pedidos" class="py-5">
-  <div class="container">
-    <h2>Pedidos Online</h2>
-    <p>Faça seu pedido e retire no local.</p>
-    <button class="btn btn-dark">Fazer Pedido</button>
-  </div>
-</section>
-
-<!-- Delivery -->
-<section id="delivery" class="bg-light py-5">
-  <div class="container">
-    <h2>Delivery</h2>
-    <p>Entrega disponível na cidade das 11h às 22h.</p>
-    <p>Áreas: Centro, Bairro Jardim, Vila Nova</p>
-    <button class="btn btn-outline-dark">Pedir Delivery</button>
-  </div>
-</section>
-
-<!-- Localização -->
-<section id="localizacao" class="py-5">
-  <div class="container">
-    <h2>Localização</h2>
-    <p>Rua Tokyo, 123 – Centro</p>
-    <div class="ratio ratio-16x9">
-      <iframe src="https://maps.google.com/maps?q=Tokyo&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-    </div>
   </div>
 </section>
 
