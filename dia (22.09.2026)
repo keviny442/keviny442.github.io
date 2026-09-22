@@ -1,0 +1,113 @@
+const express = require('express');
+const router = express.Router();
+const Produto = require('../modelos/Produto'); // Ajuste o caminho se no template o modelo estiver em outro diretório (ex: '../models/Produto')
+
+// GET /produtos - Lista todos os produtos
+router.get('/', async (req, res) => {
+  try {
+    const produtos = await Produto.findAll();
+    return res.status(200).json(produtos);
+  } catch (error) {
+    return res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+// GET /produtos/:id - Busca um produto pelo ID
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const produto = await Produto.findByPk(id);
+
+    if (!produto) {
+      return res.status(404).json({ mensagem: 'Produto não encontrado' });
+    }
+
+    return res.status(200).json(produto);
+  } catch (error) {
+    return res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+// POST /produtos - Cria um novo produto
+router.post('/', async (req, res) => {
+  try {
+    const { descricao, preco } = req.body;
+
+    // Validação de campos obrigatórios
+    if (descricao === undefined || preco === undefined || descricao === '' || preco === null) {
+      return res.status(400).json({ mensagem: 'Campos descricao e preco são obrigatórios' });
+    }
+
+    const novoProduto = await Produto.create({ descricao, preco });
+    return res.status(201).json(novoProduto);
+  } catch (error) {
+    return res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+// PUT /produtos/:id - Substitui completamente o produto
+router.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { descricao, preco } = req.body;
+
+    // Validação de campos obrigatórios
+    if (descricao === undefined || preco === undefined || descricao === '' || preco === null) {
+      return res.status(400).json({ mensagem: 'Campos descricao e preco são obrigatórios' });
+    }
+
+    const produto = await Produto.findByPk(id);
+    if (!produto) {
+      return res.status(404).json({ mensagem: 'Produto não encontrado' });
+    }
+
+    produto.descricao = descricao;
+    produto.preco = preco;
+    await produto.save();
+
+    return res.status(200).json(produto);
+  } catch (error) {
+    return res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+// PATCH /produtos/:id - Atualização parcial
+router.patch('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { descricao, preco } = req.body;
+
+    const produto = await Produto.findByPk(id);
+    if (!produto) {
+      return res.status(404).json({ mensagem: 'Produto não encontrado' });
+    }
+
+    if (descricao !== undefined) produto.descricao = descricao;
+    if (preco !== undefined) produto.preco = preco;
+
+    await produto.save();
+
+    return res.status(200).json(produto);
+  } catch (error) {
+    return res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+// DELETE /produtos/:id - Remove um produto
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const produto = await Produto.findByPk(id);
+    if (!produto) {
+      return res.status(404).json({ mensagem: 'Produto não encontrado' });
+    }
+
+    await produto.destroy();
+    return res.status(204).send();
+  } catch (error) {
+    return res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+module.exports = router;
